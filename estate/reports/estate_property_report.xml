@@ -3,7 +3,7 @@
 
    <!-- PAPERFORMAT -->
     <record id="estate_property_paperformat" model="report.paperformat">
-        <field name="name">Format Estate Property</field>
+        <field name="name">Format Estate Property A4</field>
         <field name="default" eval="False"/>
         <field name="disable_shrinking" eval="True"/>
         <field name="format">A4</field>

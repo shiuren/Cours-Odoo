@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="maison_maison_menu" name="Maison" action="maison_maison_action"/>
+        
+</odoo>

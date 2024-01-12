@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <record id="offer_view_tree" model="ir.ui.view">
+        <field name="name">offer.gaming.view.tree</field>
+        <field name="model">offer.gaming</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="salaire" />
+            <field name="dure" />
+            <field name="status" />        
+        </tree>
+        </field>
+   </record>
+
+   <!-- estate.property form view -->
+   <record id="offer_view_form" model="ir.ui.view">
+    <field name="name">offer.gaming.view.form</field>
+    <field name="model">offer.gaming</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="salaire" />
+            <field name="dure" />
+            <field name="status" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+   </record>
+</odoo>

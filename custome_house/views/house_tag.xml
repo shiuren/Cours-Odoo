@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- action -->
+    <record id="house_tag_action" model="ir.actions.act_window">
+        <field name="name">House Tag</field>
+        <field name="res_model">house.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- view tree -->
+    <record id="house_tag_view_tree" model="ir.ui.view">
+        <field name="name">house.tag.view.tree</field>
+        <field name="model">house.tag</field>
+        <field name="arch" type="xml">
+            <tree string="house tag">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- view form -->
+    <record id="house_tag_view_form" model="ir.ui.view">
+        <field name="name">house.tag.view.form</field>
+        <field name="model">house.tag</field>
+        <field name="arch" type="xml">
+            <form string="House Tag">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" widget="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

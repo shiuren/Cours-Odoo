@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!--premiere etape création d'une action-->
+    <record id="team_action" model="ir.actions.act_window">
+        <field name="name">Team</field>
+        <field name="res_model">team.gaming</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+     <record id="team_view_tree" model="ir.ui.view">
+    <field name="name">team.gaming.view.tree</field>
+    <field name="model">team.gaming</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>        
+      </tree>
+    </field>
+   </record>
+
+   <!-- estate.property form view -->
+   <record id="team_view_form" model="ir.ui.view">
+    <field name="name">team.gaming.view.form</field>
+    <field name="model">team.gaming</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="team_ids" widget="many2many_tags" options="{'color_field': 'color'}"/> 
+          </group>
+        </sheet>
+      </form>
+    </field>
+   </record>
+</odoo>

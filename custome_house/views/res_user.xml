@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+   
+     <!-- view tree -->
+    <record id="view_users_form_user_ttt" model="ir.ui.view">
+        <field name="name">res.users.view.tree</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <!--dans le xpath on définie le chemin ou on place le model-->
+            <xpath expr="//form//sheet//notebook" position="inside">
+                <page name="property_ids" string="Real eastate property">
+                    <field name="property_ids"/>
+                </page>
+                
+            </xpath>
+        </field>
+    </record>
+   
+   </data>
+   
+
+    
+</odoo>

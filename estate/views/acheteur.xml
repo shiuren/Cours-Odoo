@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="estate_acheteur_action" model="ir.actions.act_window">
+        <field name="name">Liste des Acheteur</field>
+        <field name="res_model">estate.acheteur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="estate_acheteur_view_tree" model="ir.ui.view">
+        <field name="name">estate.acheteur.view.tree</field>
+        <field name="model">estate.acheteur</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+        </tree>
+        </field>
+    </record>
+
+   <!-- estate.property form view -->
+   <record id="estate_acheteur_view_form" model="ir.ui.view">
+    <field name="name">estate.acheteur.view.form</field>
+    <field name="model">estate.acheteur</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <field name="name"/>
+          </group>
+        </sheet>       
+      </form>
+    </field>
+   </record>
+
+</odoo>

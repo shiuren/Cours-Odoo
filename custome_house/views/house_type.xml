@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- action -->
+    <record id="house_type_action" model="ir.actions.act_window">
+        <field name="name">House Type</field>
+        <field name="res_model">house.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- view tree -->
+    <record id="house_type_view_tree" model="ir.ui.view">
+        <field name="name">house.type.view.tree</field>
+        <field name="model">house.type</field>
+        <field name="arch" type="xml">
+            <tree string="house type">
+                <field name="sequence" widget="handle"/>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- view form -->
+    <record id="house_type_view_form" model="ir.ui.view">
+        <field name="name">house.type.view.form</field>
+        <field name="model">house.type</field>
+        <field name="arch" type="xml">
+            <form string="House Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Properties">
+                             <field name="property_ids">
+                                <tree>
+                                    <field name="date_actuel" />
+                                    <field name="name" />
+                                    <field name="status" />
+                                    <field name="prix" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

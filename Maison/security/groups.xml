@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!--securité pour rendre le view editable-->
+    <record id="group_admin" model="res.groups">
+        <field name="name">Maison Admin</field>
+    </record>
+    <!--securité pour seulement regarder-->
+    <record id="group_mijery" model="res.groups">
+        <field name="name">Fijerevana</field>
+    </record>
+    <!--le group id doit porter le nom de votre module 'Maison' suivi de son id dans le fichier xml-->
+</odoo>

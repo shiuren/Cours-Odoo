@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_create,perm_read,perm_write,perm_unlink
+maison_access,maison_access,model_maison_maison,Maison.group_admin,1,1,1,1
+maison_access_mijery,maison_access_mijery,model_maison_maison,Maison.group_mijery,0,1,0,0
+pivarotra_maison_access,pivarotra_maison_access,model_pivarotra_maison,base.group_user,1,1,1,1

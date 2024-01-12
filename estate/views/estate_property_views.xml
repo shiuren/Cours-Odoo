@@ -1,0 +1,95 @@
+<odoo>
+  <data>
+   <!-- estate.property action window -->
+   <record id="estate_property_action" model="ir.actions.act_window">
+    <field name="name">Estate Property</field>
+    <field name="res_model">estate.property</field>
+    <field name="view_mode">tree,form</field>
+   </record>
+
+   <!-- estate.property tree view -->
+   <record id="estate_property_view_tree" model="ir.ui.view">
+    <field name="name">estate.property.view.tree</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+      <tree 
+      decoration-success="status=='sell'"
+      decoration-danger="status=='cancel'">
+        <field name="name"/>        
+        <field name="expected_price"/>
+        <field name="postcode" />
+        <field name="date_availability" />
+        <field name="status" />
+      </tree>
+    </field>
+   </record>
+
+   <!-- estate.property form view -->
+   <record id="estate_property_view_form" model="ir.ui.view">
+    <field name="name">estate.property.view.form</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+      <form string="">
+      <header>
+          <button name="action_cancel" string="Annuler" type="object" />
+          <button name="action_sold" string="Vendre" type="object" />
+          <field name="status" widget="statusbar" statusbar_visible="draft,accept,received,sell,cancel"/>
+      </header>
+        <sheet>
+          <group>
+            <group>
+                <field name="tags_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="postcode" />
+                <field name="date_availability" />
+            </group>
+            <group>
+                <field name="expected_price" />
+                <field name="best_price" /> 
+                <field name="selling_price" />
+            </group>
+            <notebook>
+                <page string="Déscription">
+                    <group>
+                      <field name="bedrooms" />   
+                      <field name="facades" />      
+                      <field name="name"/> 
+                      <field name="description"/>
+                      <field name="living_area" />
+                      <field name="garage" />
+                      <field name="garden_area" attrs="{'invisible': [('garden', '=', False)]}"/>
+                      <field name="garden" />   
+                      <field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}"/>
+                      <field name="total_area" /> 
+                    </group>
+                </page>
+                <page string="Other Info">
+                    <group>
+                        <field name="vendeur" />
+                        <field name="acheteur" />
+                    </group>
+                </page>
+                <!--on ajoute le champ offre_ids qui contient le estate property offer-->
+                <page string="Offers">
+                    <field name="offer_ids">
+                        <tree>
+                            <field name="price"/>
+                            <field name="partner_id"/>
+                            <field name="validity" />   
+                            <field name="date_deadline" />
+                            <button name="action_accepted" string="" icon="fa-check" type="object" attrs="{'invisible': [('status', '!=', 'draft')]}"/>
+                            <button name="action_refused" string="" icon="fa-times" type="object" attrs="{'invisible': [('status', '!=', 'draft')]}"/>  
+                            <field name="status"/>      
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+            
+          </group>
+        </sheet>
+      </form>
+    </field>
+   </record>
+
+   
+  </data>
+</odoo>

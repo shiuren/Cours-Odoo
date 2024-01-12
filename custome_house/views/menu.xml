@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem  id="first_level_menu" name="House">
+        <menuitem id="menu_house" action="custome_house.house_view_action" sequence="1" name="Maison"/>
+        <menuitem id="menu_house_type" action="custome_house.house_type_action" sequence="2" name="Type"/>
+        <menuitem id="menu_property_offer" action="custome_house.property_offer_action" sequence="3" name="Offre"/>
+        <menuitem id="menu_house_tag" action="custome_house.house_tag_action" sequence="4" name="Tag"/>
+    </menuitem>
+</odoo>

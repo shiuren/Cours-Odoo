@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- action -->
+    <record id="house_view_action" model="ir.actions.act_window">
+        <field name="name">Maison</field>
+        <field name="res_model">custome.house</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- search -->
+   <record id="house_view_search" model="ir.ui.view">
+    <field name="name">custome.house.view.search</field>
+    <field name="model">custome.house</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="status" invisible="1"/>
+            <filter string="Status annulé" name="status" domain="[('status','=','cancel')]"/>
+            <filter string="Status accépté" name="status" domain="[('status','=','sell')]"/>
+            <filter string="Nouveau" name="status" domain="[('status','=','draft')]"/>
+        </search>
+    </field>
+   </record>
+
+    <!-- view tree -->
+    <record id="house_view_tree" model="ir.ui.view">
+        <field name="name">custome.house.view.tree</field>
+        <field name="model">custome.house</field>
+        <field name="arch" type="xml">
+            <tree string="Maison"
+            decoration-success="status=='sell'"
+            decoration-danger="status=='cancel'">
+                <field name="name" />
+                <field name="prix" />
+                <field name="time" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- view form -->
+    <record id="house_view_form" model="ir.ui.view">
+        <field name="name">house.view.form</field>
+        <field name="model">custome.house</field>
+        <field name="arch" type="xml">
+            <form string="House">
+                <header>
+                    <button name="action_cancel" string="Annuler" type="object" />
+                    <button name="action_sold" string="Vendre" type="object" />
+                    <field name="status" widget="statusbar" statusbar_visible="draft,accept,received,sell,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1 class="d-flex flex-row">
+                            <field name="name" placeholder="House name" required="True" style="font-size: min(4vw, 2.6rem);"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="status" />
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <!-- ici j'ai mis un option afin qu'on ne puisse modifier le contenu -->
+                            <field name="categorie_id" options="{'no_create': True}"/>
+                            <field name="prix" />
+                            <field name="bestOffer" />
+                            <field name="selling" />
+                            <field name="postal_code" />
+                        </group>
+                        <group >
+                            <field name="time"/>
+                            <field name="full_address" readonly="1"/>
+                            <field name="nombre_propriete" />
+                            <field name="prix_unitaire" />
+                            <field name="total_price" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="désctription">
+                            <group>
+                                <field name="description" />
+                                <field name="bedrooms" />
+                                <field name="living_area" />
+                                <field name="facades" />
+                                <field name="garage" />
+                                <field name="garden"/>
+                                <field name="garden_area" attrs="{'invisible': [('garden', '=', False)]}"/>
+                                <field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}"/>
+                                <field name="total_area" />
+                            </group>
+                        </page>
+                        <page string="Other Info">
+                            <group>
+                                <field name="acheteur" />
+                                <field name="vendeur_id" />
+                            </group>
+                        </page>
+                        <page string="offre">
+                                <field  name="offer_ids"   widget="section_and_note_one2many"   mode="tree,kanban"  attrs="{'readonly': [('status', 'in', ('sell','cancel'))]}" >
+                                    <tree  string="Offres"  editable="bottom">
+                                        <field name="name"/>
+                                        <field name="prix" />
+                                        <field name="date_deadline" />
+                                        <button name="action_sold" type="object" icon="fa-check" title="accepter" attrs="{'invisible': [('status', '!=', 'draft')]}"/>
+                                        <button name="action_cancel" type="object" icon="fa-times" title="refuser" attrs="{'invisible': [('status', '!=', 'draft')]}"/>
+                                        <field name="status" />
+                                    </tree>
+                                </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

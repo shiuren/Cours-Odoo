@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custome_house,access_custome_house,model_custome_house,base.group_user,1,1,1,1
+access_house_type,access_house_type,model_house_type,base.group_user,1,1,1,1
+access_property_offer,access_property_offer,model_property_offer,base.group_user,1,1,1,1
+access_house_tag,access_house_tag,model_house_tag,base.group_user,1,1,1,1

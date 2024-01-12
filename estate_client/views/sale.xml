@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <record id="view_sale_form_user_ttt" model="ir.ui.view">
+        <field name="name">sale.order.view.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!--dans le xpath on définie le chemin ou on place le model-->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_responsable" />
+            </xpath>
+        </field>
+    </record>
+    </data>    
+</odoo>

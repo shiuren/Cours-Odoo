@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+   <!-- estate.property action window -->
+   <record id="estate_type_action" model="ir.actions.act_window">
+    <field name="name">Estate Property Type</field>
+    <field name="res_model">estate.property.type</field>
+    <field name="view_mode">tree,form</field>
+   </record>
+
+   <!-- estate.property tree view -->
+   <record id="estate_type_view_tree" model="ir.ui.view">
+    <field name="name">estate.type.view.tree</field>
+    <field name="model">estate.property.type</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>        
+      </tree>
+    </field>
+   </record>
+
+   <!-- estate.property form view -->
+   <record id="estate_type_view_form" model="ir.ui.view">
+    <field name="name">estate.type.view.form</field>
+    <field name="model">estate.property.type</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+              <field name="name"/>  
+          </group>
+        </sheet>
+      </form>
+    </field>
+   </record>
+
+   
+  </data>
+</odoo>

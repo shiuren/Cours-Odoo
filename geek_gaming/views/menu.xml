@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <menuitem  id="first_level_menu" name="Geek Gaming">
+        <menuitem id="menu_team" action="geek_gaming.team_action" sequence="1" name="Team"/>
+        <menuitem id="menu_player" action="geek_gaming.player_action" sequence="2" name="player"/>
+    </menuitem>  
+</odoo>

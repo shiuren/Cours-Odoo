@@ -6,7 +6,7 @@
 
     'category': 'Uncategorized',
     'version': '0.1',
-    'depends': ['base','estate','hr'],
+    'depends': ['base','estate','hr','project','mail'],
 
     'data': [
         'security/ir.model.access.csv',
@@ -14,6 +14,7 @@
         'views/player.xml',
         'views/offer.xml',
         'views/menu.xml',
-        'views/inherite_estate.xml'
+        'views/inherite_estate.xml',
+        'security/report_security.xml'
     ],
 }

@@ -5,9 +5,10 @@ from odoo.exceptions import UserError, ValidationError
 
 class PlayerGaming(models.Model):
     _name = "player.gaming"
+    _inherit = 'mail.thread'
     _description = "Player Gaming"
 
-    name = fields.Char(string="name")
+    name = fields.Char(string="name", tracking=True)
     status = fields.Char(string="Status")
     ranking = fields.Integer(string="Ranking")
     game = fields.Integer(string="Game", compute="_compute_game", store=True)

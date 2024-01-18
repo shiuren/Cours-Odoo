@@ -33,12 +33,41 @@
 
 
     <!-- TEMPLATE RAPORT ESTATE -->
-    <template id="template_raport_estate_property">
+    <!-- <template id="template_raport_estate_property">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <div class="page">
                     <p><t t-esc="doc.expected_price"/></p>
                 </div>
+            </t>
+        </t>
+    </template> -->
+
+    <template id="template_raport_estate_property">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <span t-field="o.name"/>
+                        </h2>
+                        <div>
+                            <strong>Expected Price: </strong>
+                            <span t-field="o.tags_ids"/>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Price</th>
+                                    <th>Price</th>
+                                    <th>Price</th>
+                                    <th>Price</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>   
+                        </table>
+                    </div>
+                </t>
             </t>
         </t>
     </template>

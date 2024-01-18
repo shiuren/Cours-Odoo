@@ -22,4 +22,17 @@
         </field>
     </record>
 
+    
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="attributes">
+                <attribute name="groups">geek_gaming.group_report_security</attribute>
+            </xpath>
+        </field>     
+    </record>
+
+
 </odoo>

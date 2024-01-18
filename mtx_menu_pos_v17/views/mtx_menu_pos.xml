@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="mtx_action_purchase_order" model="ir.actions.act_window">
+        <field name="name">Achat</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+   </record>
+
+   <menuitem id="menu_pos_global_settings"
+        name="Achat"
+        parent="point_of_sale.menu_point_root"
+        action="mtx_action_purchase_order"
+        groups="base.group_system"/>
+
+</odoo>
+<!-- <record id="action_pos_configuration" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'point_of_sale', 'bin_size': False}</field>
+    </record>
+
+    <menuitem id="menu_pos_global_settings"
+        name="Settings"
+        parent="menu_point_config_product"
+        sequence="0"
+        action="action_pos_configuration"
+        groups="base.group_system"/> -->

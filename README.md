@@ -46,3 +46,46 @@
             </t>
         </t>
     </template>
+
+# Add a menu between models
+### Premièrement repérer le model où vous voulez ajouter les menu; dans mon cas j'ai choisi le point de vente par exemple. Trouver l'id parent à partir de l'indice menuitem, on pourrait voir quelque chose comme ceci : 
+
+        <menuitem
+        id="menu_point_root"
+        name="Point of Sale"
+        groups="group_pos_manager,group_pos_user"
+        web_icon="point_of_sale,static/description/icon.png"
+        sequence="50"/>
+### ici j'ai trouver id="menu_point_root" qui signifie qu'il appartient au menu principale du point de vente
+
+# Introduction des models vente et achat en tant que menu
+### Création de record et menuitem
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <record id="mtx_action_purchase_order" model="ir.actions.act_window">
+        <field name="name">Achat</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form</field>
+   </record>
+
+ <record id="mtx_action_sale_order" model="ir.actions.act_window">
+    <field name="name">Achat</field>
+    <field name="res_model">sale.order</field>
+    <field name="view_mode">tree,form</field>
+ </record>
+
+   <menuitem id="menu_pos_purchacse_settings"
+        name="Achat"
+        parent="point_of_sale.menu_point_root"
+        action="mtx_action_purchase_order"
+        groups="base.group_system"/>
+
+   <menuitem id="menu_pos_sale_settings"
+        name="Vente"
+        parent="point_of_sale.menu_point_root"
+        action="mtx_action_sale_order"
+        groups="base.group_system"/>
+
+</odoo>

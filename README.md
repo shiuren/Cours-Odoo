@@ -89,3 +89,46 @@
         groups="base.group_system"/>
 
 </odoo>
+
+
+# mtx_project_security lecture seul
+### Pour rendre des champs en lecture seul voici un extrait de code python ainsi que son code xml : 
+
+is_readonly = fields.Boolean(compute="_compute_readonly_fields", string="test")
+
+
+@api.depends('allocated_hours', 'date_deadline')
+def _compute_readonly_fields(self):
+    for record in self:
+       record.is_readonly = self.env["res.users"].has_group('mtx_project_security.group_readonly')
+
+
+
+
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model="ir.ui.view" id="view_task_form2_inherited">
+        <field name="name">project.task.form.inherited</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_deadline']" position="after">
+                <field name="is_readonly" invisible='1'/>
+            </xpath>
+            <xpath expr="//field[@name='date_deadline']" position="attributes">
+                <attribute name="readonly">is_readonly</attribute>
+            </xpath>
+           <xpath expr="//field[@name='allocated_hours']" position="after">
+                <field name="is_readonly" invisible='1'/>
+            </xpath>
+            <xpath expr="//field[@name='allocated_hours']" position="attributes">
+                <attribute name="readonly">is_readonly</attribute>
+            </xpath>
+        </field>     
+    </record>
+
+</odoo>
+
+# Dans cette méthode nous avons créé un nouveau champ appelé is_readonly qui est un bolean; son rôle de savoir si l'utilisateur actuel appartient au groupe de sécurité.
+# self : c'est un ensemble d'enregistrement de l'objet appelé sur laquel la méthode est appelée
+# self.env[''] : Cette syntaxe est utilisée pour accéder à l'objet modèle associé à la table de base de données ici notre modéle est res.user

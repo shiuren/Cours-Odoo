@@ -112,14 +112,11 @@ def _compute_readonly_fields(self):
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='date_deadline']" position="after">
+            <xpath expr="//form" position="after">
                 <field name="is_readonly" invisible='1'/>
             </xpath>
             <xpath expr="//field[@name='date_deadline']" position="attributes">
                 <attribute name="readonly">is_readonly</attribute>
-            </xpath>
-           <xpath expr="//field[@name='allocated_hours']" position="after">
-                <field name="is_readonly" invisible='1'/>
             </xpath>
             <xpath expr="//field[@name='allocated_hours']" position="attributes">
                 <attribute name="readonly">is_readonly</attribute>
@@ -132,3 +129,4 @@ def _compute_readonly_fields(self):
 # Dans cette méthode nous avons créé un nouveau champ appelé is_readonly qui est un bolean; son rôle de savoir si l'utilisateur actuel appartient au groupe de sécurité.
 # self : c'est un ensemble d'enregistrement de l'objet appelé sur laquel la méthode est appelée
 # self.env[''] : Cette syntaxe est utilisée pour accéder à l'objet modèle associé à la table de base de données ici notre modéle est res.user
+# dans le fichier xml j'ai mis is_readonly dans le xpath "from" position = "inside" mais invisible ainsi vous pouvez ajoutez tous les champs qui si trouve en mode lecture seul 

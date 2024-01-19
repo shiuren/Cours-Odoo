@@ -127,6 +127,6 @@ def _compute_readonly_fields(self):
 </odoo>
 
 # Dans cette méthode nous avons créé un nouveau champ appelé is_readonly qui est un bolean; son rôle de savoir si l'utilisateur actuel appartient au groupe de sécurité.
-# self : c'est un ensemble d'enregistrement de l'objet appelé sur laquel la méthode est appelée
+# self : c'est un ensemble d'enregistrement de l'objet sur laquel la méthode est appelée
 # self.env[''] : Cette syntaxe est utilisée pour accéder à l'objet modèle associé à la table de base de données ici notre modéle est res.user
 # dans le fichier xml j'ai mis is_readonly dans le xpath "from" position = "inside" mais invisible ainsi vous pouvez ajoutez tous les champs qui si trouve en mode lecture seul 
